@@ -1,0 +1,237 @@
+/* 司机界面样式 */
+#driver-interface .left-panel {
+    width: 350px;
+    background-color: white;
+    border-right: 1px solid var(--border-color);
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+#driver-interface .right-panel {
+    flex: 1;
+    position: relative;
+}
+
+/* 司机状态切换 */
+.driver-status {
+    padding: 20px;
+    border-bottom: 1px solid var(--border-color);
+    width: 100%; /* 确保状态显示覆盖整个左侧面板宽度 */
+}
+
+.driver-status h2 {
+    color: var(--text-primary);
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+.status-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%; /* 确保状态切换覆盖整个宽度 */
+}
+
+/* 开关样式 */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: var(--primary-color);
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px var(--primary-color);
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.status-text {
+    font-weight: 500;
+    color: var(--primary-color);
+}
+
+/* 订单列表 */
+.order-list {
+    padding: 20px;
+    flex: 1;
+    width: 100%; /* 确保订单列表覆盖整个左侧面板宽度 */
+}
+
+.order-list h3 {
+    color: var(--text-secondary);
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.task-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    margin-bottom: 15px;
+    border-left: 3px solid var(--primary-color);
+}
+
+.task-card .task-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.task-card .task-id {
+    font-size: 0.9rem;
+    color: var(--text-tertiary);
+}
+
+.task-card .task-type {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.task-card .task-type.pickup {
+    background-color: var(--success-color);
+}
+
+.task-card .task-type.delivery {
+    background-color: var(--warning-color);
+}
+
+.task-card .address {
+    margin: 10px 0;
+    font-weight: 500;
+}
+
+.task-card .contact {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.task-card .time-estimate {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: var(--text-tertiary);
+}
+
+.task-card .task-actions {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* 导航面板 */
+.navigation-panel {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    border-radius: 12px 12px 0 0;
+}
+
+.nav-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.nav-header h3 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.nav-instructions {
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.nav-instruction {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.instruction-icon {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: var(--background-light);
+    margin-right: 15px;
+}
+
+.nav-time-distance {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 0;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+/* 移动端响应式适配 */
+@media (max-width: 768px) {
+    #driver-interface .left-panel {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+    }
+    
+    .driver-status {
+        padding: 15px;
+    }
+    
+    .order-list {
+        padding: 15px;
+    }
+    
+    .navigation-panel {
+        position: fixed;
+    }
+}

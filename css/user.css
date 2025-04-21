@@ -1,0 +1,173 @@
+/* 用户界面样式 */
+#user-interface .left-panel {
+    width: 400px;
+    background-color: white;
+    border-right: 1px solid var(--border-color);
+    overflow-y: auto;
+    padding: 20px;
+}
+
+#user-interface .right-panel {
+    flex: 1;
+}
+
+/* 下单表单 */
+.order-form {
+    margin-bottom: 30px;
+}
+
+.order-form h2 {
+    color: var(--text-primary);
+    margin-bottom: 20px;
+    font-size: 1.4rem;
+}
+
+/* 价格预估 */
+.price-estimate {
+    background-color: var(--background-light);
+    padding: 15px;
+    border-radius: 4px;
+    margin: 15px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 500;
+}
+
+.price-estimate .price {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* 订单追踪样式 */
+.order-tracking {
+    padding: 15px;
+}
+
+.order-tracking .order-status {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.status-steps {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.status-step {
+    display: flex;
+    padding: 10px 0;
+    border-left: 2px solid var(--border-color);
+    padding-left: 20px;
+    position: relative;
+}
+
+.status-step.active {
+    border-left: 2px solid var(--primary-color);
+}
+
+.status-step.active::before {
+    content: '';
+    position: absolute;
+    left: -7px;
+    top: 10px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+}
+
+.status-step .step-time {
+    color: var(--text-tertiary);
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+/* 地址输入增强样式 */
+.address-input-wrapper {
+    position: relative;
+}
+
+.address-suggestions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    border: 1px solid var(--border-color);
+    border-radius: 0 0 4px 4px;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 10;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.address-suggestion {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.address-suggestion:hover {
+    background-color: var(--background-light);
+}
+
+/* 历史订单查看 */
+.order-history {
+    margin-top: 20px;
+}
+
+.order-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    padding: 15px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.order-card:hover {
+    transform: translateY(-3px);
+}
+
+.order-card .order-id {
+    color: var(--text-tertiary);
+    font-size: 0.9rem;
+}
+
+.order-card .order-addresses {
+    margin: 10px 0;
+    line-height: 1.4;
+}
+
+.order-card .order-status {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.order-card .status-completed {
+    background-color: #f6ffed;
+    color: var(--success-color);
+    border: 1px solid #b7eb8f;
+}
+
+.order-card .status-in-progress {
+    background-color: #e6f7ff;
+    color: var(--primary-color);
+    border: 1px solid #91d5ff;
+}
+
+.order-card .status-cancelled {
+    background-color: #fff2e8;
+    color: var(--error-color);
+    border: 1px solid #ffccc7;
+}

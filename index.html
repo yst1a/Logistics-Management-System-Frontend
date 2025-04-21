@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智送 - 城市货运智能调度系统</title>
+    <!-- CSS 引入 -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/user.css">
+    <link rel="stylesheet" href="css/driver.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <!-- 引入高德地图API，使用最简单的方式 -->
+    <script type="text/javascript" src="https://webapi.amap.com/maps?v=2.0&key=c8fae909bbe693dfedcf68380c250a63"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- 顶部导航栏 -->
+        <header class="header">
+            <div class="logo">
+                <img src="assets/icons/logo.png" alt="智送">
+                <h1>智送</h1>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#" class="active" id="nav-user">用户端</a></li>
+                    <li><a href="#" id="nav-driver">司机端</a></li>
+                    <li><a href="#" id="nav-admin">管理端</a></li>
+                </ul>
+            </nav>
+            <div class="user-info">
+                <span class="username">游客</span>
+                <a href="#" class="login-btn">登录/注册</a>
+            </div>
+        </header>
+
+        <!-- 主内容区 -->
+        <main class="main-content">
+            <!-- 用户界面 -->
+            <section id="user-interface" class="interface active">
+                <div class="left-panel">
+                    <div class="order-form">
+                        <h2>快速下单</h2>
+                        <div class="form-group">
+                            <label>取货地点</label>
+                            <input type="text" placeholder="请输入取货地址" id="pickup-address">
+                        </div>
+                        <div class="form-group">
+                            <label>送货地点</label>
+                            <input type="text" placeholder="请输入送货地址" id="delivery-address">
+                        </div>
+                        <div class="form-group">
+                            <label>货物信息</label>
+                            <select id="cargo-type">
+                                <option value="small">小件 (≤1m³)</option>
+                                <option value="medium">中件 (1-3m³)</option>
+                                <option value="large">大件 (≥3m³)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>送达时间</label>
+                            <select id="delivery-time">
+                                <option value="asap">尽快送达</option>
+                                <option value="scheduled">预约时间</option>
+                            </select>
+                            <div class="scheduled-time hidden">
+                                <input type="datetime-local" id="scheduled-datetime">
+                            </div>
+                        </div>
+                        <div class="price-estimate">
+                            <span>预估费用:</span>
+                            <span class="price">¥35.00</span>
+                        </div>
+                        <button class="primary-btn" id="submit-order">立即下单</button>
+                    </div>
+                    <div class="order-tracking hidden">
+                        <!-- 订单追踪内容 -->
+                    </div>
+                </div>
+                <div class="right-panel">
+                    <div id="user-map" class="map-container"></div>
+                </div>
+            </section>
+
+            <!-- 司机界面 -->
+            <section id="driver-interface" class="interface hidden">
+                <div class="left-panel">
+                    <div class="driver-status">
+                        <h2>司机状态</h2>
+                        <div class="status-toggle">
+                            <label class="switch">
+                                <input type="checkbox" id="driver-online">
+                                <span class="slider"></span>
+                            </label>
+                            <span class="status-text">接单中</span>
+                        </div>
+                    </div>
+                    <div class="order-list">
+                        <h3>当前任务</h3>
+                        <div class="current-tasks" id="driver-tasks">
+                            <!-- 任务列表动态生成 -->
+                        </div>
+                    </div>
+                </div>
+                <div class="right-panel">
+                    <div id="driver-map" class="map-container"></div>
+                    <div class="navigation-panel hidden">
+                        <!-- 导航信息 -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- 管理界面 -->
+            <section id="admin-interface" class="interface hidden">
+                <div class="admin-sidebar">
+                    <nav class="admin-nav">
+                        <ul>
+                            <li><a href="#" class="active" data-tab="overview">总览</a></li>
+                            <li><a href="#" data-tab="orders">订单管理</a></li>
+                            <li><a href="#" data-tab="drivers">司机管理</a></li>
+                            <li><a href="#" data-tab="settings">系统设置</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="admin-content">
+                    <div class="tab-content active" id="overview">
+                        <h2>系统总览</h2>
+                        <div class="dashboard-grid">
+                            <div class="stat-card">
+                                <h3>今日订单</h3>
+                                <div class="stat-value">128</div>
+                            </div>
+                            <div class="stat-card">
+                                <h3>在线车辆</h3>
+                                <div class="stat-value">45</div>
+                            </div>
+                            <div class="stat-card">
+                                <h3>平均配送时间</h3>
+                                <div class="stat-value">28分钟</div>
+                            </div>
+                            <div class="stat-card">
+                                <h3>系统负载</h3>
+                                <div class="stat-value">65%</div>
+                            </div>
+                        </div>
+                        <div class="map-overview">
+                            <h3>车辆分布热力图</h3>
+                            <div id="admin-map" class="map-container"></div>
+                        </div>
+                    </div>
+                    <!-- 其他标签页内容 -->
+                </div>
+            </section>
+        </main>
+
+        <!-- 底部信息 -->
+        <footer class="footer">
+            <div class="footer-info">
+                <p>&copy; 2025 智送城市货运智能调度系统 - 物流技能大赛项目</p>
+            </div>
+        </footer>
+
+        <!-- 模态框 -->
+        <div class="modal hidden" id="login-modal">
+            <!-- 登录模态框内容 -->
+        </div>
+    </div>
+
+    <!-- JavaScript 引入 -->
+    <script src="js/main.js"></script>
+    <script src="js/map.js"></script>
+    <script src="js/user-interface.js"></script>
+    <script src="js/driver-interface.js"></script>
+    <script src="js/admin-interface.js"></script>
+    <script src="js/route-planning.js"></script>
+    <script src="js/order-matching.js"></script>
+    <script src="js/mock-data.js"></script>
+    <script src="js/fix.js"></script>
+    <!-- 在原有脚本后添加 -->
+    <script src="js/nav-fix.js"></script>
+    <script src="js/map-fix.js"></script>
+    <script src="js/tab-fix.js"></script>
+</body>
+</html>

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智送系统图标库</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        h1 {
+            color: #1a73e8;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+        h2 {
+            margin-top: 30px;
+            color: #555;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+        }
+        .icon-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .icon-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 15px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+        .icon-item:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transform: translateY(-2px);
+        }
+        .icon-preview {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 10px;
+        }
+        .icon-name {
+            font-size: 14px;
+            text-align: center;
+            color: #666;
+        }
+        .usage-section {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+        }
+        code {
+            background-color: #f1f1f1;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+        pre {
+            background-color: #f1f1f1;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>智送城市货运智能调度系统图标库</h1>
+    <p>这里集合了智送系统所需的各类SVG图标，按功能模块分类整理。</p>
+    
+    <h2>通用图标</h2>
+    <div class="icon-grid">
+        <div class="icon-item">
+            <img src="common/menu.svg" alt="菜单图标" class="icon-preview">
+            <span class="icon-name">menu.svg</span>
+        </div>
+        <div class="icon-item">
+            <img src="common/search.svg" alt="搜索图标" class="icon-preview">
+            <span class="icon-name">search.svg</span>
+        </div>
+        <div class="icon-item">
+            <img src="common/notification.svg" alt="通知图标" class="icon-preview">
+            <span class="icon-name">notification.svg</span>
+        </div>
+    </div>
+    
+    <h2>用户端图标</h2>
+    <div class="icon-grid">
+        <div class="icon-item">
+            <img src="user/order.svg" alt="订单图标" class="icon-preview">
+            <span class="icon-name">order.svg</span>
+        </div>
+        <div class="icon-item">
+            <img src="user/location.svg" alt="位置图标" class="icon-preview">
+            <span class="icon-name">location.svg</span>
+        </div>
+        <div class="icon-item">
+            <img src="user/tracking.svg" alt="追踪图标" class="icon-preview">
+            <span class="icon-name">tracking.svg</span>
+        </div>
+    </div>
+    
+    <h2>司机端图标</h2>
+    <div class="icon-grid">
+        <div class="icon-item">
+            <img src="driver/navigation.svg" alt="导航图标" class="icon-preview">
+            <span class="icon-name">navigation.svg</span>
+        </div>
+        <div class="icon-item">
+            <img src="driver/task-list.svg" alt="任务列表图标" class="icon-preview">
+            <span class="icon-name">task-list.svg</span>
+        </div>
+        <div class="icon-item">
+            <img src="driver/complete-order.svg" alt="完成订单图标" class="icon-preview">
+            <span class="icon-name">complete-order.svg</span>
+        </div>
+    </div>
+    
+    <h2>管理端图标</h2>
+    <div class="icon-grid">
+        <div class="icon-item">
+            <img src="admin/dashboard.svg" alt="仪表盘图标" class="icon-preview">
+            <span class="icon-name">dashboard.svg</span>
+        </div>
+        <div class="icon-item">
+            <img src="admin/vehicle-management.svg" alt="车辆管理图标" class="icon-preview">
+            <span class="icon-name">vehicle-management.svg</span>
+        </div>
+        <div class="icon-item">
+            <img src="admin/heatmap.svg" alt="热力图图标" class="icon-preview">
+            <span class="icon-name">heatmap.svg</span>
+        </div>
+    </div>
+    
+    <h2>地图图标</h2>
+    <div class="icon-grid">
+        <div class="icon-item">
+            <img src="map/marker.svg" alt="地图标记图标" class="icon-preview">
+            <span class="icon-name">marker.svg</span>
+        </div>
+        <div class="icon-item">
+            <img src="map/route.svg" alt="路线图标" class="icon-preview">
+            <span class="icon-name">route.svg</span>
+        </div>
+        <div class="icon-item">
+            <img src="map/traffic.svg" alt="交通状况图标" class="icon-preview">
+            <span class="icon-name">traffic.svg</span>
+        </div>
+    </div>
+    
+    <h2>状态图标</h2>
+    <div class="icon-grid">
+        <div class="icon-item">
+            <img src="status/success.svg" alt="成功状态图标" class="icon-preview">
+            <span class="icon-name">success.svg</span>
+        </div>
+        <div class="icon-item">
+            <img src="status/error.svg" alt="错误状态图标" class="icon-preview">
+            <span class="icon-name">error.svg</span>
+        </div>
+        <div class="icon-item">
+            <img src="status/loading.svg" alt="加载中状态图标" class="icon-preview">
+            <span class="icon-name">loading.svg</span>
+        </div>
+    </div>
+    
+    <div class="usage-section">
+        <h2>使用方法</h2>
+        <h3>1. 直接在HTML中使用</h3>
+        <pre><code>&lt;img src="assets/icons/user/order.svg" alt="订单图标"&gt;</code></pre>
+        
+        <h3>2. 作为背景图片使用</h3>
+        <pre><code>.order-icon {
+    background-image: url('assets/icons/user/order.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 24px;
+    height: 24px;
+}</code></pre>
+        
+        <h3>3. 使用SVG内联</h3>
+        <p>将SVG代码直接嵌入HTML中，可以通过CSS控制图标颜色：</p>
+        <pre><code>&lt;!-- 例如控制颜色的内联SVG --&gt;
+&lt;svg class="icon-svg" width="24px" height="24px" viewBox="0 0 24 24"&gt;
+    &lt;!-- SVG内容 --&gt;
+&lt;/svg&gt;
+
+&lt;style&gt;
+.icon-svg {
+    fill: currentColor; /* 使图标继承文本颜色 */
+}
+&lt;/style&gt;</code></pre>
+        
+        <h3>4. 图标大小调整</h3>
+        <p>所有图标默认为24px×24px，可通过CSS调整大小：</p>
+        <pre><code>.small-icon {
+    width: 16px;
+    height: 16px;
+}
+
+.large-icon {
+    width: 32px;
+    height: 32px;
+}</code></pre>
+    </div>
+</body>
+</html>
